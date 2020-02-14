@@ -35,16 +35,19 @@ while(accion!=="Salir"&&vidaJugadora>0&&vidaMonstruo>0){
     accion = prompt("Que accion desde ejecutar: Atacar monstruo, Tomar pocion, Buscar pocion o Salir");
     switch(accion){
         case 'Atacar monstruo': 
-        vidaMonstruo-=(getRandomInt(1, maxJugadora));
-        vidaJugadora-=(getRandomInt(1, maxMonstruo));        
-        alert(`Jugadora ataco a monstruo, ahora el monstruo tiene ${vidaMonstruo} vidas, Jugadora tiene ${vidaJugadora} vidas`);
+        pierdeVidasMonstruo = getRandomInt(1, maxJugadora);
+        vidaMonstruo-=pierdeVidasMonstruo;
+        pierdeVidasJugadora = getRandomInt(1, maxMonstruo);   
+        vidaJugadora-=pierdeVidasJugadora 
+        alert(`Jugadora ataco a monstruo, le saco ${pierdeVidasMonstruo} vidas ahora el monstruo tiene ${vidaMonstruo} vidas, Jugadora perdio ${pierdeVidasJugadora} tiene ${vidaJugadora} vidas`);
         break;
         case 'Tomar pocion': 
         if(cantidadPociones>0){
         vidaJugadora+=(getRandomInt(1, curacionMaxPocion));
         cantidadPociones--;
-        vidaJugadora-=(getRandomInt(1, maxMonstruo));   
-        alert(`Ahora la jugadora tiene ${vidaJugadora} vidas`);
+        pierdeVidasJugadora = getRandomInt(1, maxMonstruo);
+        vidaJugadora-=pierdeVidasJugadora; 
+        alert(`Jugadora perdio ${pierdeVidasJugadora} ahora la jugadora tiene ${vidaJugadora} vidas`);
         } else{
             alert(`No tiene mas pociones, elija otra opcion`);
         }
@@ -57,8 +60,9 @@ while(accion!=="Salir"&&vidaJugadora>0&&vidaMonstruo>0){
         } else{
             alert(`No se ha encontrado ninguna pocion`);
         }
-        vidaJugadora-=(getRandomInt(1, maxMonstruo));   
-        alert(`Ahora la jugadora tiene ${vidaJugadora} vidas`);
+        pierdeVidasJugadora = getRandomInt(1, maxMonstruo);
+        vidaJugadora-=pierdeVidasJugadora;   
+        alert(`Jugadora perdio ${pierdeVidasJugadora} Ahora la jugadora tiene ${vidaJugadora} vidas`);
         break;
         case "Salir":
             break;
