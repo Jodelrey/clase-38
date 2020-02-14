@@ -39,15 +39,16 @@ while(accion!=="Salir"&&vidaJugadora>0&&vidaMonstruo>0){
         vidaMonstruo-=pierdeVidasMonstruo;
         pierdeVidasJugadora = getRandomInt(1, maxMonstruo);   
         vidaJugadora-=pierdeVidasJugadora 
-        alert(`Jugadora ataco a monstruo, le saco ${pierdeVidasMonstruo} vidas ahora el monstruo tiene ${vidaMonstruo} vidas, Jugadora perdio ${pierdeVidasJugadora} tiene ${vidaJugadora} vidas`);
+        alert(`Jugadora ataco a monstruo, le saco ${pierdeVidasMonstruo} vidas. \n Ahora el monstruo tiene ${vidaMonstruo} vidas. \n Jugadora perdio ${pierdeVidasJugadora}, tiene ${vidaJugadora} vidas`);
         break;
         case 'Tomar pocion': 
         if(cantidadPociones>0){
-        vidaJugadora+=(getRandomInt(1, curacionMaxPocion));
+        sumarVidaJugadora = getRandomInt(1, curacionMaxPocion);
+        vidaJugadora+=sumarVidaJugadora;
         cantidadPociones--;
         pierdeVidasJugadora = getRandomInt(1, maxMonstruo);
         vidaJugadora-=pierdeVidasJugadora; 
-        alert(`Jugadora perdio ${pierdeVidasJugadora} ahora la jugadora tiene ${vidaJugadora} vidas`);
+        alert(`Jugadora sumo ${sumarVidaJugadora} vidas por la pocion pero perdio ${pierdeVidasJugadora} por el ataque del monstruo. \n Ahora la jugadora tiene ${vidaJugadora} vidas`);
         } else{
             alert(`No tiene mas pociones, elija otra opcion`);
         }
@@ -62,7 +63,7 @@ while(accion!=="Salir"&&vidaJugadora>0&&vidaMonstruo>0){
         }
         pierdeVidasJugadora = getRandomInt(1, maxMonstruo);
         vidaJugadora-=pierdeVidasJugadora;   
-        alert(`Jugadora perdio ${pierdeVidasJugadora} Ahora la jugadora tiene ${vidaJugadora} vidas`);
+        alert(`Jugadora perdio ${pierdeVidasJugadora} vida por el ataque del monstruo.\n Ahora la jugadora tiene ${vidaJugadora} vidas`);
         break;
         case "Salir":
             break;
