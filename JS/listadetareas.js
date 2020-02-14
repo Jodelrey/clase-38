@@ -18,22 +18,22 @@ while(noSalir){
     switch(menu){
         case "Agregar tarea":
             nuevaTarea = prompt("Ingrese la tarea a agregar");
-            numeroTarea++;
-            listadoTareas.push(`\n -Tarea Nro ${numeroTarea}: ${nuevaTarea}`);
+            
+            listadoTareas.push(`\n ${nuevaTarea}`);
             alert(`Ha ingresado una nueva tarea a su listado`);
             break;
         case "Modificar tarea":
-            tareaAModificar = Number(prompt(`Ingrese el numero de la tarea que desea modificar ${listadoTareas}`));
+            tareaAModificar = Number(prompt(`Ingrese el numero de la tarea que desea modificar ${listadoTareas.join(' ')}`));
             for(let i = 0; i<listadoTareas.length; i++){
                 if((i+1)===tareaAModificar){
                     tareaModificada = prompt(`Ud va a modificar ${listadoTareas[i]}, ingrese por favor la nueva tarea`);
-                    listadoTareas.splice(listadoTareas[i], 1, `-Tarea Nro ${i+1} ${tareaModificada}`);
+                    listadoTareas.splice(listadoTareas[i], 1, tareaModificada);
                 }
             }
             break;
 
         case "Eliminar tarea":
-            tareaAEliminar = Number(prompt(`Del siguiente listado de tareas, ingrese el numero de la tarea que desea eliminar: \n ${listadoTareas}`));
+            tareaAEliminar = Number(prompt(`Del siguiente listado de tareas, ingrese el numero de la tarea que desea eliminar: ${listadoTareas.join(' ')}`));
             for(let i = 0; i<listadoTareas.length; i++){
                 if((i+1)===tareaAEliminar){
                     listadoTareas.splice(i, 1);
